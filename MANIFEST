@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: ru.windcorp.piwcs.radioman.telegram.RadiomanTelegramLauncher
+Class-Path: ../RadiomanData/telegrambots-4.1-jar-with-dependencies.jar
+
