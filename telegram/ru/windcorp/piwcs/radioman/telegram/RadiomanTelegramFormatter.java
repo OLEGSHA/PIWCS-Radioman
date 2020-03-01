@@ -29,20 +29,20 @@ public class RadiomanTelegramFormatter {
 				
 				switch (entity.getType()) {
 				case "bold":
-					if (DATA_BUFFER[start] == 0) INDEX_BUFFER[indexIndex++] = (short) (int) start;
-					if (DATA_BUFFER[  end] == 0) INDEX_BUFFER[indexIndex++] = (short) (int) end;
+					if (DATA_BUFFER[start] == 0) INDEX_BUFFER[indexIndex++] = (short) start;
+					if (DATA_BUFFER[  end] == 0) INDEX_BUFFER[indexIndex++] = (short) end;
 					DATA_BUFFER[start] |= BOLD;
 					DATA_BUFFER[  end] |= BOLD;
 					break;
 				case "italic":
-					if (DATA_BUFFER[start] == 0) INDEX_BUFFER[indexIndex++] = (short) (int) start;
-					if (DATA_BUFFER[  end] == 0) INDEX_BUFFER[indexIndex++] = (short) (int) end;
+					if (DATA_BUFFER[start] == 0) INDEX_BUFFER[indexIndex++] = (short) start;
+					if (DATA_BUFFER[  end] == 0) INDEX_BUFFER[indexIndex++] = (short) end;
 					DATA_BUFFER[start] |= ITALICS;
 					DATA_BUFFER[  end] |= ITALICS;
 					break;
 				case "url":
-					if (DATA_BUFFER[start] == 0) INDEX_BUFFER[indexIndex++] = (short) (int) start;
-					if (DATA_BUFFER[  end] == 0) INDEX_BUFFER[indexIndex++] = (short) (int) end;
+					if (DATA_BUFFER[start] == 0) INDEX_BUFFER[indexIndex++] = (short) start;
+					if (DATA_BUFFER[  end] == 0) INDEX_BUFFER[indexIndex++] = (short) end;
 					DATA_BUFFER[start] |= URL;
 					DATA_BUFFER[  end] |= URL;
 					break;

@@ -131,7 +131,6 @@ public class RadiomanEngineTelegram {
 				message.getPassportData() != null) {
 			System.out.print("Off-topic, quietly ignoring. ");
 			// Ignore
-			return;
 		} else if (message.getNewChatMembers() != null) {
 			System.out.print("New members. ");
 			processNewMembers(message);

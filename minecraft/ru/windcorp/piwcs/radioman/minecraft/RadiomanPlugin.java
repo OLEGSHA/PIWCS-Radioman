@@ -42,6 +42,7 @@ public class RadiomanPlugin extends JavaPlugin {
 		}
 	}
 	
+	@Override
 	public void onDisable() {
 		minecraftBroadcaster.cancel();
 		RadiomanClient.stop();
