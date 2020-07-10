@@ -6,11 +6,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
+import org.telegram.telegrambots.bots.DefaultBotOptions.ProxyType;
+
 import ru.windcorp.piwcs.radioman.RadiomanConstants;
 
 public class Config {
 	
 	private static String username, token;
+	
+	private static ProxyType proxyType;
 	private static String proxyHost, proxyUsername;
 	private static int proxyPort;
 	private static char[] proxyPassword;
@@ -29,6 +33,7 @@ public class Config {
 			port = scanner.nextInt();                       System.out.println("\tport = " + port);
 			username = scanner.next();                      System.out.println("\tusername = " + username);
 			token = scanner.next();                         System.out.println("\ttoken = [REDACTED]");
+			proxyType = ProxyType.valueOf(scanner.next());  System.out.println("\tproxyType = " + proxyType);
 			proxyHost = scanner.next();                     System.out.println("\tproxyHost = " + proxyHost);
 			proxyPort = scanner.nextInt();                  System.out.println("\tproxyPort = " + proxyPort);
 			proxyUsername = scanner.next();                 System.out.println("\tproxyUsername = " + proxyUsername);
@@ -46,6 +51,10 @@ public class Config {
 
 	public static String getToken() {
 		return token;
+	}
+	
+	public static ProxyType getProxyType() {
+		return proxyType;
 	}
 
 	public static String getProxyHost() {

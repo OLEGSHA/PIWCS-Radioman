@@ -4,6 +4,7 @@ import java.net.Authenticator;
 import java.net.PasswordAuthentication;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
+import org.telegram.telegrambots.bots.DefaultBotOptions.ProxyType;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.ApiContext;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
@@ -60,16 +61,23 @@ public class RadiomanBot extends TelegramLongPollingBot {
 		TelegramBotsApi api = new TelegramBotsApi();
 		
 		DefaultBotOptions botOptions = ApiContext.getInstance(DefaultBotOptions.class);
-		botOptions.setProxyHost(Config.getProxyHost());
-		botOptions.setProxyPort(Config.getProxyPort());
-		botOptions.setProxyType(DefaultBotOptions.ProxyType.SOCKS5);
 		
-		setupAuthenticator();
+		setupProxy(botOptions);
 		
 		inst = new RadiomanBot(botOptions);
 		session = api.registerBot(inst);
 		
 		System.out.println("Done");
+	}
+	
+	private static void setupProxy(DefaultBotOptions botOptions) throws Exception {
+		if (Config.getProxyType() != ProxyType.NO_PROXY) {
+			botOptions.setProxyHost(Config.getProxyHost());
+			botOptions.setProxyPort(Config.getProxyPort());
+			botOptions.setProxyType(Config.getProxyType());
+			
+			setupAuthenticator();
+		}
 	}
 
 	private static void setupAuthenticator() throws Exception {
